@@ -26,8 +26,9 @@ $(document).ready(function () {
                 $(".country").click(function () {
                     removeActive();
                     $(this).addClass('active');
+                    Blockit();
                     $('.myChart').addClass('blur');
-                    $('.pause').css('display', 'block');
+                    $('.lds-roller').css('display', 'block');
                     currentCountry = $(this).text();
                     $("#title").text(currentCountry + "'s Data");
 
@@ -106,7 +107,8 @@ $(document).ready(function () {
                             dataShowedUp = true;
                             if (dataShowedUp) {
                                 $('.myChart').removeClass('blur');
-                                $('.pause').css('display', 'none');
+                                $('.lds-roller ').css('display', 'none');
+                                OpenIt();
                             }
                         });
                 })
@@ -126,7 +128,9 @@ $(document).ready(function () {
 
     $(".Refresh-btn").click(function () {
         showRefrechBtn(false);
-
+        $('.myChart').addClass('blur');
+        $('.lds-roller').css('display', 'block');
+        Blockit();
         $.get("https://api.covid19api.com/dayone/country/" + currentCountry)
             .done(function (data) {
                 var year = $("#year option:selected").val();
@@ -200,6 +204,11 @@ $(document).ready(function () {
                 myChart = setChart(myChart, ctx, myData, 'update');
 
                 dataShowedUp = true;
+                if (dataShowedUp) {
+                    $('.myChart').removeClass('blur');
+                    $('.lds-roller ').css('display', 'none');
+                    OpenIt();
+                }
             });
 
     })
@@ -217,6 +226,18 @@ $(document).ready(function () {
         $('.country').each(function () {
             if ($(this).hasClass('active'))
                 $(this).removeClass('active');
+        })
+    }
+
+    function Blockit() {
+        $('.country').each(function () {
+            $(this).css('pointer-events', 'none');
+        })
+    }
+
+    function OpenIt() {
+        $('.country').each(function () {
+            $(this).css('pointer-events', 'all');
         })
     }
 
