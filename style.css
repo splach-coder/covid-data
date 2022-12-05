@@ -91,6 +91,7 @@ section .countries-list::-webkit-scrollbar-thumb{
 }
 
 section .chart{
+    position: relative;
     background-color: #2C313C;
     flex-basis: 70%;
     padding: 20px;
@@ -127,4 +128,23 @@ section .chart{
 
 .top-chart select:first-child{
     margin-right: 20px;
+}
+
+
+.Refresh-btn {
+   position: absolute;
+   border: 1px solid #37B0F7;
+   color: #37B0F7;
+   padding: 8px 16px;
+   border-radius: 3px;
+   cursor: pointer;
+   left: 50%;
+   transform: translate(-50%);
+   transition: all 150ms ease;
+   scale: 0;
+}
+
+.Refresh-btn:hover{
+    background-color: #37B0F7;
+    color: #2C313C;
 }
