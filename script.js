@@ -24,6 +24,10 @@ $(document).ready(function () {
                 });
 
                 $(".country").click(function () {
+                    removeActive();
+                    $(this).addClass('active');
+                    $('.myChart').addClass('blur');
+                    $('.pause').css('display', 'block');
                     currentCountry = $(this).text();
                     $("#title").text(currentCountry + "'s Data");
 
@@ -100,6 +104,10 @@ $(document).ready(function () {
                             myChart = setChart(myChart, ctx, myData, 'update');
 
                             dataShowedUp = true;
+                            if (dataShowedUp) {
+                                $('.myChart').removeClass('blur');
+                                $('.pause').css('display', 'none');
+                            }
                         });
                 })
             });
@@ -202,6 +210,14 @@ $(document).ready(function () {
             $(".Refresh-btn").css('scale', '1');
         else
             $(".Refresh-btn").css('scale', '0');
+    }
+
+
+    function removeActive() {
+        $('.country').each(function () {
+            if ($(this).hasClass('active'))
+                $(this).removeClass('active');
+        })
     }
 
     function init(ctx) {

@@ -86,8 +86,16 @@ section .countries-list::-webkit-scrollbar-thumb{
     color: whitesmoke;
 }
 
+.country.active{
+    background-color: #37B0F7;
+}
+
 .country:hover{
     background-color: #5A5565;
+}
+
+.country.active:hover{
+    background-color: #37B0F7;
 }
 
 section .chart{
@@ -147,4 +155,21 @@ section .chart{
 .Refresh-btn:hover{
     background-color: #37B0F7;
     color: #2C313C;
+}
+
+.pause{
+    position: absolute;
+    background-color: #37B0F7;
+    width: 50px;
+    height: 30px;
+    border-radius: 10px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    user-select: none;
+    display: none;
+}
+
+.myChart.blur{
+    filter: blur(10px);
 }
