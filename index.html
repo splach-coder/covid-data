@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Covid 19 Data</title>
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <header>
+      <div class="logo"><img src="imgs/logo.png" alt="" /></div>
+    </header>
+    <section>
+      <div class="countries">
+        <h2>countries</h2>
+        <div class="countries-list"></div>
+      </div>
+      <div class="chart">
+        <div class="top-chart">
+          <h2 id="title">Covid's Data</h2>
+          Year :
+          <select id="year">
+            <option value="2020" selected>2020</option>
+            <option value="2021">2021</option>
+            <option value="2022">2022</option>
+          </select>
+
+          Part :
+          <select id="part">
+            <option value="s1" selected>Jan - Mars</option>
+            <option value="s2">Apr - Jun</option>
+            <option value="s3">July - Sep</option>
+            <option value="s4">Oct - Dec</option>
+          </select>
+        </div>
+        <canvas id="myChart"></canvas>
+      </div>
+    </section>
+    <footer></footer>
+  </body>
+</html>
