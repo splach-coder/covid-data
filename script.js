@@ -276,6 +276,7 @@ $(document).ready(function () {
             }
         }
 
+
         return myChart;
     }
 })
